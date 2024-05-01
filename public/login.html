@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          margin: 0;
+          padding: 0;
+          background-size: cover;
+        }
+        .size{
+          width: 500px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 60vh; 
+          margin-left: 30%;
+        }
+        .container {
+          max-width: 2000px;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1,
+        h2 {
+          color: black;
+        }
+    
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        select {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+    
+        button {
+          background-color: #4caf50;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+    
+        button:hover {
+          background-color: #45a049;
+        }
+    
+        .error-message {
+          color: red;
+          margin-top: 10px;
+        }
+    
+        #loginPage {
+          background-image: url("back5.jpg");
+          background-size: cover;
+        }
+    
+        #signupPage {
+          background-image: url("back5.jpg");
+          background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="size">
+        <section id="loginPage" class="container">
+            <h1 style="color: chocolate; font-family: cursive;">Login</h1>
+            <form id="loginForm" action="/login" method="POST">
+                <label style="color: chocolate; font-family: cursive;" for="username">UserName :</label>
+                <input type="text" id="username" name="username" required>
+                <label style="color: chocolate; font-family: cursive;" for="password">Password :</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" style="font-family: cursive;">Login</button>
+            </form>
+            <div id="loginError" class="error-message"></div>
+            <p style="color: #fff; font-family: cursive;">Don't have an account?<a href="#" id="signupLink" style="color: red;">Sign Up</a></p>
+        </section>
+        <section id="signupPage" class="container" style="display: none;">
+            <h1 style="color: chocolate; font-family: cursive;">Sign Up</h1>
+            <form id="signupForm" action="/signup" method="POST">
+                <label for="newUsername" style="color: chocolate; font-family: cursive;">Choose a Username:</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <label for="newPassword" style="color: chocolate; font-family: cursive;">Choose a Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit" style="font-family: cursive;">Sign Up</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        const loginPage = document.getElementById('loginPage');
+        const signupPage = document.getElementById('signupPage');
+      
+        document.getElementById('signupLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            loginPage.style.display = 'none';
+            signupPage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
